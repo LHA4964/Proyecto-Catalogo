@@ -6,12 +6,20 @@ public class Ordenador implements Serializable{
     private String cpu;
     private String gpu;
     private int ram;
+    private int precio;
+    private int id;
 
-    public Ordenador(String marca, String cpu, String gpu, int ram){
-        this.marca = this.marca;
-        this.cpu = this.cpu;
-        this.gpu = this.gpu;
-        this.ram = this.ram;
+    public Ordenador(String marca, String cpu, String gpu, int ram, int precio, int id) {
+        this.marca = marca;
+        this.cpu = cpu;
+        this.gpu = gpu;
+        this.ram = ram;
+        this.precio = precio;
+        this.id = id;
+    }
+
+    public Ordenador(int id) {
+        this.id = id;
     }
 
     public String getMarca() {
@@ -38,11 +46,15 @@ public class Ordenador implements Serializable{
     public void setRam(int ram_) {
         ram = ram_;
     }
+    public int getPrecio() {return precio;}
+    public void setPrecio(int precio_) {precio = precio_;}
+    public int getId() {return id;}
+    public void setId(int id_) {id = id_;}
 
-    public void mostrarInfo() {
-        System.out.println("Marca: " + marca + ", CPU: " + cpu + ", GPU: " + gpu + ", RAM: " + ram + "GB");
+    public String list() {
+        return "id = " + id + ", marca = "+ marca +", precio = " + precio + "€ \n";
     }
-    public String toString() {
-        return "Ordenador(marca=" + marca + ", cpu=" + cpu + ", gpu=" + gpu + ", ram=" + ram + "GB)";
+    public String info() {
+        return "id = " + id + ", marca = " + marca + ", CPU = " + cpu + ", GPU = " + gpu + ", RAM = " + ram + "GB, precio = " + precio + "€ \n";
     }
 }

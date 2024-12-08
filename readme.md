@@ -1,134 +1,73 @@
-# Gestión de Ordenadores
+# Catálogo de Ordenadores
 
-Este proyecto es una aplicación simple para gestionar un catálogo de ordenadores. La aplicación está estructurada en varios paquetes y clases que permiten agregar, mostrar y almacenar información sobre los ordenadores.
-
-## Guía de Instalación
-
-Para instalar el proyecto, sigue estos pasos:
-
-1. Clona el repositorio desde GitHub:
-
-   ```bash
-   git clone <enlace-de-tu-repositorio>
-
-2. Navega al directorio del proyecto:
-   ```bash
-    cd nombre-del-directorio-del-proyecto    
-3. Ejecuta la aplicación:
-    ```bash
-   java -cp bin principal.Main
+Este proyecto es una aplicación de consola en Java para gestionar un catálogo de ordenadores. Permite añadir, eliminar, modificar y listar ordenadores, así como guardar y cargar el catálogo desde un archivo.
 
 ## Estructura del Proyecto
-El proyecto está dividido en los siguientes paquetes:
 
-- principal: Contiene la clase Main.
+El proyecto está dividido en varios paquetes:
 
-- interfaz: Contiene la clase Interfaz.
+- `dominio`: Contiene las clases principales del modelo, como `Ordenador`, `Catalogo`, y las excepciones `ErrorOrdenadorNoEncontrado` y `ErrorOrdenadorDuplicado`.
+- `interfaz`: Contiene la clase `Interfaz` que maneja la interacción con el usuario a través de la consola.
+- `principal`: Contiene la clase `Main` que inicia la aplicación.
 
-- dominio: Contiene las clases Catalogo y Ordenador.
+## Clases Principales
 
-## Clases y Métodos
-### principal.Main
-Clase principal que inicia la aplicación.
+### Ordenador
 
-Métodos:
-- main(String[] args)
+Representa un ordenador con atributos como marca, CPU, GPU, RAM, precio e ID. Implementa la interfaz `Serializable` para permitir su almacenamiento en archivos.
 
-### interfaz.Interfaz
-Clase que representa la interfaz de usuario.
+### Catalogo
 
-Atributos:
-- Catalogo catalogo
+Gestiona una lista de objetos `Ordenador`. Permite añadir, eliminar, modificar y listar ordenadores, así como guardar y cargar el catálogo desde un archivo.
 
-- Scanner scanner
+### Interfaz
 
-Métodos:
+Maneja la interacción con el usuario a través de la consola. Proporciona un menú con opciones para listar, añadir, eliminar y modificar ordenadores.
 
-- Interfaz()
+### Main
 
-- void menu()
+Inicia la aplicación y muestra el menú de la interfaz.
 
-- void annadir()
+## Excepciones
 
-### dominio.Catalogo
-Clase que representa un catálogo de ordenadores.
+### ErrorOrdenadorNoEncontrado
 
-Atributos:
+Excepción lanzada cuando se intenta acceder a un ordenador que no existe en el catálogo.
 
-- ArrayList<Ordenador> catalogo
+### ErrorOrdenadorDuplicado
 
-Métodos:
+Excepción lanzada cuando se intenta añadir un ordenador con un ID que ya existe en el catálogo.
 
-- Catalogo()
+## Instrucciones de Uso
 
-- void annadirOrdenador(Ordenador ordenador)
+1. **Compilar el proyecto**: Asegúrate de tener el JDK instalado y compila el proyecto con el siguiente comando:
+    ```sh
+    javac -d bin src/dominio/*.java src/interfaz/*.java src/principal/*.java
+    ```
 
-- void mostrarCatalogo()
+2. **Ejecutar la aplicación**: Ejecuta la aplicación desde la carpeta `bin`:
+    ```sh
+    java principal.Main
+    ```
 
-- static void grabar(Catalogo catalogo)
+3. **Comandos disponibles**:
+   - `help`: Muestra el mensaje de ayuda.
+   - `list`: Muestra información reducida de todos los ordenadores.
+   - `info,Id`: Muestra información detallada de un ordenador específico.
+   - `add,Marca,CPU,GPU,RAM,Precio,Id`: Añade un nuevo ordenador al catálogo.
+   - `remove,Id`: Elimina un ordenador del catálogo.
+   - `modify,Id,Atributo,NuevoValor`: Modifica un atributo de un ordenador existente.
+   - `exit`: Guarda el catálogo y sale de la aplicación.
 
-- static Catalogo leer()
+## Notas
 
-### dominio.Ordenador
-Clase que representa un ordenador.
-
-Atributos:
-
-- String marca
-
-- String cpu
-
-- String gpu
-
-- int ram
-
-Métodos:
-
-- Ordenador(String marca, String cpu, String gpu, int ram)
-
-- String getMarca()
-
-- void setMarca(String marca_)
-
-- String getCpu()
-
-- void setCpu(String cpu_)
-
-- String getGpu()
-
-- void setGpu(String gpu_)
-
-- int getRam()
-
-- void setRam(int ram_)
-
-- void mostrarInfo()
-
-- String toString()
-
-## Ejecución
-Para ejecutar la aplicación, compila y ejecuta la clase Main en el paquete principal.
-
-## Uso
-Las instrucciones disponibles en la interfaz de usuario son:
-
-- 1 = añadir: Añade un nuevo ordenador al catálogo.
-
-- 2 = listar: Muestra el catálogo de ordenadores.
-
-- 3 = salir: Guarda el catálogo y finaliza la aplicación.
+- Asegúrate de que el archivo `catalogo.ser` esté en el mismo directorio que la aplicación al cargar el catálogo.
+- Los atributos válidos para el comando `modify` son: `marca`, `cpu`, `gpu`, `ram`, `precio`.
 
 ## Diagrama UML
-El siguiente diagrama muestra la estructura del proyecto:
-![UML.png](UML.png)
 
-## Requisitos
-Java SE Development Kit (JDK) 8 o superior.
+- ![UML.png](UML.png)
 
 ## Autor
-Este proyecto fue creado por Luis Holgado Arranz y Nicolas Lopez Fernandez.
 
-## Licencia
-Este proyecto está bajo la Licencia Apache. Puedes ver el archivo LICENSE para más detalles.
-
-
+- **Luis Holgado Arranz**
