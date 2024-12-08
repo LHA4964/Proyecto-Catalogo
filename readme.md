@@ -66,7 +66,7 @@ Excepción lanzada cuando se intenta añadir un ordenador con un ID que ya exist
 
 ## Diagrama UML
 
-- ![UML.png](UML.png)
+- UML.png
 
 ## Autor
 
